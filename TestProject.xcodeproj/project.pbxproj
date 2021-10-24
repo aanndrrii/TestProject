@@ -13,6 +13,10 @@
 		B58C69AF2716D70B00044E58 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B58C69AD2716D70B00044E58 /* Main.storyboard */; };
 		B58C69B12716D71100044E58 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B58C69B02716D71100044E58 /* Assets.xcassets */; };
 		B58C69B42716D71100044E58 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B58C69B22716D71100044E58 /* LaunchScreen.storyboard */; };
+		B5C3DE1E27218A4F00167B99 /* Film.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C3DE1D27218A4F00167B99 /* Film.swift */; };
+		B5C3DE2027218BFC00167B99 /* FilmRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C3DE1F27218BFC00167B99 /* FilmRequest.swift */; };
+		B5F2AF322720488700529C95 /* StoriesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F2AF302720488700529C95 /* StoriesTableViewCell.swift */; };
+		B5F2AF332720488700529C95 /* StoriesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5F2AF312720488700529C95 /* StoriesTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,10 @@
 		B58C69B02716D71100044E58 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B58C69B32716D71100044E58 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B58C69B52716D71100044E58 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B5C3DE1D27218A4F00167B99 /* Film.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Film.swift; sourceTree = "<group>"; };
+		B5C3DE1F27218BFC00167B99 /* FilmRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmRequest.swift; sourceTree = "<group>"; };
+		B5F2AF302720488700529C95 /* StoriesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesTableViewCell.swift; sourceTree = "<group>"; };
+		B5F2AF312720488700529C95 /* StoriesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StoriesTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,13 +66,25 @@
 			children = (
 				B58C69A72716D70B00044E58 /* AppDelegate.swift */,
 				B58C69A92716D70B00044E58 /* SceneDelegate.swift */,
-				B58C69AB2716D70B00044E58 /* StoriesViewController.swift */,
+				B5F2AF2F2720483A00529C95 /* Stories */,
 				B58C69AD2716D70B00044E58 /* Main.storyboard */,
 				B58C69B02716D71100044E58 /* Assets.xcassets */,
 				B58C69B22716D71100044E58 /* LaunchScreen.storyboard */,
 				B58C69B52716D71100044E58 /* Info.plist */,
 			);
 			path = TestProject;
+			sourceTree = "<group>";
+		};
+		B5F2AF2F2720483A00529C95 /* Stories */ = {
+			isa = PBXGroup;
+			children = (
+				B58C69AB2716D70B00044E58 /* StoriesViewController.swift */,
+				B5F2AF302720488700529C95 /* StoriesTableViewCell.swift */,
+				B5F2AF312720488700529C95 /* StoriesTableViewCell.xib */,
+				B5C3DE1D27218A4F00167B99 /* Film.swift */,
+				B5C3DE1F27218BFC00167B99 /* FilmRequest.swift */,
+			);
+			path = Stories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,6 +145,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B58C69B42716D71100044E58 /* LaunchScreen.storyboard in Resources */,
+				B5F2AF332720488700529C95 /* StoriesTableViewCell.xib in Resources */,
 				B58C69B12716D71100044E58 /* Assets.xcassets in Resources */,
 				B58C69AF2716D70B00044E58 /* Main.storyboard in Resources */,
 			);
@@ -137,7 +158,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5C3DE1E27218A4F00167B99 /* Film.swift in Sources */,
 				B58C69AC2716D70B00044E58 /* StoriesViewController.swift in Sources */,
+				B5F2AF322720488700529C95 /* StoriesTableViewCell.swift in Sources */,
+				B5C3DE2027218BFC00167B99 /* FilmRequest.swift in Sources */,
 				B58C69A82716D70B00044E58 /* AppDelegate.swift in Sources */,
 				B58C69AA2716D70B00044E58 /* SceneDelegate.swift in Sources */,
 			);
