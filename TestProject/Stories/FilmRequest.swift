@@ -38,7 +38,8 @@ struct FilmRequest {
                 let decoder = JSONDecoder()
                 let filmsResponse = try decoder.decode(Films.self, from: jsonData)
                 completion(.success(filmsResponse))
-            } catch {
+            } catch let error {
+                print(error)
                 completion(.failure(.canNotProcessData))
             }
         }
