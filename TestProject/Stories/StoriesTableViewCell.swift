@@ -12,6 +12,7 @@ class StoriesTableViewCell: UITableViewCell {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var websiteLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var posterImage: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

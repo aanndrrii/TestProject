@@ -23,18 +23,10 @@ class StoriesViewController: UIViewController {
     var films: Films = Films() {
         didSet {
             DispatchQueue.main.async {
-                
+                self.tableView.reloadData()
             }
         }
     }
-    
-    var tableData = [
-        Story(description: "Mercedes Benz and Laures broadening their worldwide involvement,", website: "Emersedesbenz.com", time: "1 hour ago"),
-        Story(description: "Mercedes Benz and Laures broadening their worldwide involvement", website: "Emersedesbenz.com", time: "2 hours ago"),
-        Story(description: "Mercedes Benz and Laures broadening their worldwide involvement", website: "Emersedesbenz.com", time: "3 hours ago"),
-        Story(description: "Mercedes Benz and Laures broadening their worldwide involvement", website: "Emersedesbenz.com", time: "4 hours ago"),
-        Story(description: "Mercedes Benz and Laures broadening their worldwide involvement", website: "Emersedesbenz.com", time: "5 hours ago")
-        ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,10 +41,8 @@ class StoriesViewController: UIViewController {
             switch result {
                 case .failure(let error):
                    print(error)
-                    
                 case .success(let films):
                     self.films = films
-                    
             }
         }
         
@@ -63,19 +53,41 @@ class StoriesViewController: UIViewController {
 extension StoriesViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.tableData.count
+        return self.films.films.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "StoriesCell", for: indexPath as IndexPath) as! StoriesTableViewCell
-        cell.descriptionLabel?.text = self.tableData[indexPath.row].description
-        cell.websiteLabel?.text = self.tableData[indexPath.row].website
-        cell.timeLabel?.text = self.tableData[indexPath.row].time
+        cell.descriptionLabel?.text = self.films.films[indexPath.row].overview
+        cell.websiteLabel?.text = self.films.films[indexPath.row].title
+        cell.timeLabel?.text = self.films.films[indexPath.row].releaseDate
+        cell.posterImage?.downloaded(from: "https://image.tmdb.org/t/p/w500\(self.films.films[indexPath.row].posterPath)")
         return cell
     }
 }
 
 extension StoriesViewController: UIScrollViewDelegate {
     
+}
+
+extension UIImageView {
+    func downloaded(from url: URL, contentMode mode: ContentMode = .scaleAspectFit) {
+        contentMode = mode
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            guard
+                let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
+                let mimeType = response?.mimeType, mimeType.hasPrefix("image"),
+                let data = data, error == nil,
+                let image = UIImage(data: data)
+                else { return }
+            DispatchQueue.main.async() { [weak self] in
+                self?.image = image
+            }
+        }.resume()
+    }
+    func downloaded(from link: String, contentMode mode: ContentMode = .scaleAspectFit) {
+        guard let url = URL(string: link) else { return }
+        downloaded(from: url, contentMode: mode)
+    }
 }
 
